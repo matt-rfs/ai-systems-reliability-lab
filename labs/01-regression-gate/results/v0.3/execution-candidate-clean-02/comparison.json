@@ -1,0 +1,71 @@
+{
+  "baseline": {
+    "total": 30,
+    "passed": 30,
+    "correctness": 1.0,
+    "hard_gate_failures": 0,
+    "schema_violations": 0
+  },
+  "candidate": {
+    "total": 30,
+    "passed": 30,
+    "correctness": 1.0,
+    "hard_gate_failures": 0,
+    "schema_violations": 0
+  },
+  "changes": {
+    "unchanged_pass": [
+      "C01",
+      "C02",
+      "C03",
+      "C04",
+      "C05",
+      "C06",
+      "C07",
+      "C08",
+      "C09",
+      "C10",
+      "C11",
+      "C12",
+      "C13",
+      "C14",
+      "C15",
+      "C16",
+      "C17",
+      "C18",
+      "C19",
+      "C20",
+      "C21",
+      "C22",
+      "C23",
+      "C24",
+      "C25",
+      "C26",
+      "C27",
+      "C28",
+      "C29",
+      "C30"
+    ],
+    "unchanged_fail": [],
+    "fixed": [],
+    "regression": []
+  },
+  "baseline_semantic": {
+    "records": 30,
+    "available": 30,
+    "unavailable": 0,
+    "failures": 15,
+    "rate": 0.5
+  },
+  "candidate_semantic": {
+    "records": 30,
+    "available": 29,
+    "unavailable": 1,
+    "failures": 12,
+    "rate": 0.5862068965517241
+  },
+  "release": {
+    "pass": true,
+    "reasons": []
+  }
+}

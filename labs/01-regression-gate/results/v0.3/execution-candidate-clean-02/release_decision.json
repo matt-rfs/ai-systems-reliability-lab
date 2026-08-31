@@ -1,0 +1,1 @@
+{"release":"FAIL","reasons":["factual support below 90%"],"baseline_deterministic_correctness":1.0,"candidate_deterministic_correctness":1.0,"baseline_factual_support":0.5,"candidate_factual_support":0.5862068965517241,"new_regressions":0,"hard_gate_violations":0,"cost_usd":0.0}

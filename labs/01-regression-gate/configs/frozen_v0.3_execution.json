@@ -1,0 +1,1 @@
+{"name":"v0.3_frozen_execution","runtime":"Ollama 0.33.0 local native /api/chat","model":"qwen2.5:1.5b","decoding":"JSON-schema constrained","schema":"configs/model_output_schema_flat.json","temperature":0,"max_tokens":200,"authority":"results/v0.3/freeze_manifest_constrained.json"}

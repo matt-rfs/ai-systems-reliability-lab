@@ -1,0 +1,11 @@
+.pytest_cache/
+__pycache__/
+*.pyc
+*.zip
+labs/01-regression-gate/results/v0.2/
+labs/01-regression-gate/results/v0.3/decision_record.md
+labs/01-regression-gate/results/v0.3/result_card.svg
+labs/01-regression-gate/results/v0.3/freeze_manifest.json
+labs/01-regression-gate/results/v0.3/runs/
+labs/01-regression-gate/results/v0.3/execution-clean-01/candidate_generation.jsonl
+labs/01-regression-gate/results/v0.3/execution-clean-01/candidate_semantic.jsonl

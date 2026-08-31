@@ -1,0 +1,9 @@
+[project]
+name = "ai-systems-reliability-lab"
+version = "0.2.0"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["labs/01-regression-gate"]
+testpaths = ["labs/01-regression-gate/tests"]

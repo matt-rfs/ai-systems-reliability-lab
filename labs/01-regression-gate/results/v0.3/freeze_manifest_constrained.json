@@ -1,0 +1,20 @@
+{
+  "experiment_id": "lab01-v0.3-constrained-qwen2.5-1.5b",
+  "frozen_at": "2026-08-30T06:45:00Z",
+  "runtime": "Ollama 0.33.0 local native /api/chat",
+  "model": "qwen2.5:1.5b",
+  "generation": {"temperature": 0, "output_token_ceiling": 200},
+  "constrained_decoding": "Ollama format=<flat JSON Schema>; enum, required fields, boolean, array, and additionalProperties=false enforced",
+  "schema_sha256": "f450c46faedec0f85a19637957e58819e5fd15f97132916cca1ba314a7c5b0fa",
+  "sha256": {
+    "golden_dataset": "e869ffe5437a0e43267f4efe7f2b8cf1135adb4a293ec7f7ec03ff9c859b7771",
+    "baseline_config": "a9c06ed62b41d8d2fe8b89863b859126f20bc0cdf634fa8c85e2f16a38d6d98a",
+    "baseline_prompt": "ba3d14f273e0225682e338aaef4b809a92fa52445d814561982446b56d110a18",
+    "candidate_config": "df5526bbac18590df50516b025c02d2b70bfc8d04419f6e2796433aefc790685",
+    "candidate_prompt": "45a79d2b62f0f3cfecc7195935193f52fcdb461ae8e6477853c92e9132bc26f0",
+    "known_bad_config": "b9390f99908b8dc8f1f594854e63c8b3884f691b4ac7db8813ad6528d1f816d1"
+  },
+  "evaluator_state": "src/evaluators.py, src/gate.py, and src/compare.py unchanged from V0.2",
+  "thresholds": {"deterministic_correctness_minimum": 0.9, "candidate_not_lower_than_baseline": true, "factual_support_minimum": 0.9, "factual_support_decline_max_cases": 1},
+  "known_bad_disposition": "isolated evaluator self-test; excluded from the real experiment"
+}

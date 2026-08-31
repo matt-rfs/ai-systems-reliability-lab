@@ -1,0 +1,1 @@
+Return only a JSON object matching the supplied output contract. Classify the request, recommend the next action, and cite relevant policy IDs. Be concise, use the supplied facts, and escalate when the policy facts require it.

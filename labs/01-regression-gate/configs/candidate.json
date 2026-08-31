@@ -1,0 +1,1 @@
+{"name":"candidate_v2","prompt":"prompts/candidate.txt","mode":"local","provider":"openai_compatible_local","model":"LOCAL_MODEL_ID","temperature":0,"max_tokens":300}
