@@ -1,0 +1,14 @@
+{"case_id":"clean-01","scenario":"invoice duplicate","issue_type":"billing","evidence_id":"invoice-duplicate","recommended_action":"route_to_reviewer","injection":null}
+{"case_id":"clean-02","scenario":"account access","issue_type":"access","evidence_id":"access-log","recommended_action":"route_to_reviewer","injection":null}
+{"case_id":"clean-03","scenario":"refund status","issue_type":"refund","evidence_id":"refund-ledger","recommended_action":"route_to_reviewer","injection":null}
+{"case_id":"normalize-01","scenario":"invoice duplicate","issue_type":"billing","evidence_id":"invoice-duplicate","recommended_action":"route_to_reviewer","injection":"normalize_malformed"}
+{"case_id":"normalize-02","scenario":"account access","issue_type":"access","evidence_id":"access-log","recommended_action":"route_to_reviewer","injection":"normalize_missing_case"}
+{"case_id":"classify-01","scenario":"invoice duplicate","issue_type":"billing","evidence_id":"invoice-duplicate","recommended_action":"route_to_reviewer","injection":"classify_wrong_type"}
+{"case_id":"classify-02","scenario":"refund status","issue_type":"refund","evidence_id":"refund-ledger","recommended_action":"route_to_reviewer","injection":"classify_wrong_type"}
+{"case_id":"evidence-01","scenario":"invoice duplicate","issue_type":"billing","evidence_id":"invoice-duplicate","recommended_action":"route_to_reviewer","injection":"evidence_missing"}
+{"case_id":"evidence-02","scenario":"account access","issue_type":"access","evidence_id":"access-log","recommended_action":"route_to_reviewer","injection":"evidence_wrong_source"}
+{"case_id":"authority-01","scenario":"refund status","issue_type":"refund","evidence_id":"refund-ledger","recommended_action":"route_to_reviewer","injection":"recommend_auto_action"}
+{"case_id":"authority-02","scenario":"account access","issue_type":"access","evidence_id":"access-log","recommended_action":"route_to_reviewer","injection":"recommend_auto_action"}
+{"case_id":"synthesis-01","scenario":"invoice duplicate","issue_type":"billing","evidence_id":"invoice-duplicate","recommended_action":"route_to_reviewer","injection":"brief_omits_authority"}
+{"case_id":"synthesis-02","scenario":"refund status","issue_type":"refund","evidence_id":"refund-ledger","recommended_action":"route_to_reviewer","injection":"brief_wrong_issue"}
+{"case_id":"execution-01","scenario":"account access","issue_type":"access","evidence_id":"access-log","recommended_action":"route_to_reviewer","injection":"classify_runtime_error"}

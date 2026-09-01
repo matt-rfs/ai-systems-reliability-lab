@@ -6,4 +6,4 @@ dependencies = ["pydantic>=2.0"]
 
 [tool.pytest.ini_options]
 pythonpath = ["labs/01-regression-gate"]
-testpaths = ["labs/01-regression-gate/tests"]
+testpaths = ["labs/01-regression-gate/tests", "labs/02-failure-forensics/tests"]

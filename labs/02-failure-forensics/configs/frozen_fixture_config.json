@@ -1,0 +1,10 @@
+{
+  "name": "lab02_v0.1_deterministic_forensics",
+  "runtime": "Python deterministic fixture",
+  "provider": "local",
+  "model": null,
+  "api_service_cost_usd": 0.0,
+  "stages": ["normalize", "classify", "select_evidence", "recommend", "generate_final_brief"],
+  "case_count": 14,
+  "real_inference": false
+}

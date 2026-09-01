@@ -2,6 +2,12 @@
 
 Small, inspectable experiments in evaluating AI-enabled systems. Lab 01 uses only synthetic, public-safe data.
 
+## Lab 02 — Failure Forensics
+
+**Question:** Can a bad multi-stage AI outcome be traced to its first causal failure rather than blamed on its final visible symptom?
+
+The completed synthetic fixture records five validated stages for 14 frozen cases and localizes the first failure **14/14** times. See [Lab 02](labs/02-failure-forensics/README.md).
+
 ## Lab 01 — Model Regression Gate
 
 **Question:** Did a frozen AI configuration change make a bounded business workflow measurably worse?

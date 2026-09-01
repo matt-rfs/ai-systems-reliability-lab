@@ -1,0 +1,180 @@
+{
+  "case_count": 14,
+  "trace_count": 70,
+  "stage_count": 5,
+  "failure_localization_accuracy": "14/14",
+  "failure_type_accuracy": "14/14",
+  "origin_vs_propagation_accuracy": "14/14",
+  "trace_completeness": "70/70",
+  "regression_fixture": {
+    "case_id": "evidence-01",
+    "before_fix": {
+      "case_id": "evidence-01",
+      "first_failure_stage": "select_evidence",
+      "failure_type": "EVIDENCE_FAILURE",
+      "symptom_stages": [],
+      "propagation_detected": false,
+      "contained": true,
+      "clean_run": false
+    },
+    "after_fix": {
+      "case_id": "evidence-01",
+      "first_failure_stage": null,
+      "failure_type": null,
+      "symptom_stages": [],
+      "propagation_detected": false,
+      "contained": false,
+      "clean_run": true
+    },
+    "verified": true
+  },
+  "propagation_case_count": 4,
+  "contained_case_count": 5,
+  "no_downstream_propagation_case_count": 5,
+  "runtime": "Python deterministic fixture",
+  "model": null,
+  "token_counts": "unavailable; no model invoked",
+  "api_service_cost_usd": 0.0,
+  "total_measured_stage_latency_ms": 1.656,
+  "real_inference": "not used; deterministic forensics core is the measured result",
+  "findings": [
+    {
+      "case_id": "clean-01",
+      "first_failure_stage": null,
+      "failure_type": null,
+      "symptom_stages": [],
+      "propagation_detected": false,
+      "contained": false,
+      "clean_run": true
+    },
+    {
+      "case_id": "clean-02",
+      "first_failure_stage": null,
+      "failure_type": null,
+      "symptom_stages": [],
+      "propagation_detected": false,
+      "contained": false,
+      "clean_run": true
+    },
+    {
+      "case_id": "clean-03",
+      "first_failure_stage": null,
+      "failure_type": null,
+      "symptom_stages": [],
+      "propagation_detected": false,
+      "contained": false,
+      "clean_run": true
+    },
+    {
+      "case_id": "normalize-01",
+      "first_failure_stage": "normalize",
+      "failure_type": "CONTRACT_FAILURE",
+      "symptom_stages": [],
+      "propagation_detected": false,
+      "contained": true,
+      "clean_run": false
+    },
+    {
+      "case_id": "normalize-02",
+      "first_failure_stage": "normalize",
+      "failure_type": "CONTRACT_FAILURE",
+      "symptom_stages": [],
+      "propagation_detected": false,
+      "contained": true,
+      "clean_run": false
+    },
+    {
+      "case_id": "classify-01",
+      "first_failure_stage": "classify",
+      "failure_type": "CLASSIFICATION_FAILURE",
+      "symptom_stages": [
+        "select_evidence",
+        "recommend",
+        "generate_final_brief"
+      ],
+      "propagation_detected": true,
+      "contained": false,
+      "clean_run": false
+    },
+    {
+      "case_id": "classify-02",
+      "first_failure_stage": "classify",
+      "failure_type": "CLASSIFICATION_FAILURE",
+      "symptom_stages": [
+        "select_evidence",
+        "recommend",
+        "generate_final_brief"
+      ],
+      "propagation_detected": true,
+      "contained": false,
+      "clean_run": false
+    },
+    {
+      "case_id": "evidence-01",
+      "first_failure_stage": "select_evidence",
+      "failure_type": "EVIDENCE_FAILURE",
+      "symptom_stages": [],
+      "propagation_detected": false,
+      "contained": true,
+      "clean_run": false
+    },
+    {
+      "case_id": "evidence-02",
+      "first_failure_stage": "select_evidence",
+      "failure_type": "EVIDENCE_FAILURE",
+      "symptom_stages": [],
+      "propagation_detected": false,
+      "contained": true,
+      "clean_run": false
+    },
+    {
+      "case_id": "authority-01",
+      "first_failure_stage": "recommend",
+      "failure_type": "POLICY_AUTHORITY_FAILURE",
+      "symptom_stages": [
+        "generate_final_brief"
+      ],
+      "propagation_detected": true,
+      "contained": false,
+      "clean_run": false
+    },
+    {
+      "case_id": "authority-02",
+      "first_failure_stage": "recommend",
+      "failure_type": "POLICY_AUTHORITY_FAILURE",
+      "symptom_stages": [
+        "generate_final_brief"
+      ],
+      "propagation_detected": true,
+      "contained": false,
+      "clean_run": false
+    },
+    {
+      "case_id": "synthesis-01",
+      "first_failure_stage": "generate_final_brief",
+      "failure_type": "FINAL_SYNTHESIS_FAILURE",
+      "symptom_stages": [],
+      "propagation_detected": false,
+      "contained": false,
+      "clean_run": false
+    },
+    {
+      "case_id": "synthesis-02",
+      "first_failure_stage": "generate_final_brief",
+      "failure_type": "FINAL_SYNTHESIS_FAILURE",
+      "symptom_stages": [],
+      "propagation_detected": false,
+      "contained": false,
+      "clean_run": false
+    },
+    {
+      "case_id": "execution-01",
+      "first_failure_stage": "classify",
+      "failure_type": "EXECUTION_FAILURE",
+      "symptom_stages": [],
+      "propagation_detected": false,
+      "contained": true,
+      "clean_run": false
+    }
+  ]
+}

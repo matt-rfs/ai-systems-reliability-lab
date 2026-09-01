@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="590" viewBox="0 0 1120 590" role="img" aria-label="Failure lineage: classification failure at stage two propagates to final brief">
+  <rect width="1120" height="590" fill="#f7f4ed"/>
+  <text x="54" y="62" font-family="Georgia,serif" font-size="30" fill="#202020">Lab 02 — Failure lineage</text>
+  <text x="54" y="91" font-family="Arial,sans-serif" font-size="16" fill="#505050">Measured deterministic fixture: classify-01</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="54" y="140" width="180" height="92" rx="8" fill="#e5f0e9" stroke="#4a7457"/><text x="75" y="178" font-size="17" fill="#23442d">1  NORMALIZE</text><text x="75" y="205" font-size="15" fill="#23442d">PASS</text>
+    <text x="244" y="193" font-size="30" fill="#606060">→</text>
+    <rect x="275" y="140" width="180" height="92" rx="8" fill="#f8ded8" stroke="#a7392d" stroke-width="2"/><text x="296" y="178" font-size="17" fill="#6f211b">2  CLASSIFY</text><text x="296" y="205" font-size="15" fill="#6f211b">FAIL · wrong issue type</text>
+    <text x="465" y="193" font-size="30" fill="#606060">→</text>
+    <rect x="496" y="140" width="180" height="92" rx="8" fill="#ece8e2" stroke="#776e64"/><text x="517" y="178" font-size="17" fill="#4b4640">3  EVIDENCE</text><text x="517" y="205" font-size="15" fill="#4b4640">PROPAGATED</text>
+    <text x="686" y="193" font-size="30" fill="#606060">→</text>
+    <rect x="717" y="140" width="180" height="92" rx="8" fill="#ece8e2" stroke="#776e64"/><text x="738" y="178" font-size="17" fill="#4b4640">4  RECOMMEND</text><text x="738" y="205" font-size="15" fill="#4b4640">PROPAGATED</text>
+    <text x="907" y="193" font-size="30" fill="#606060">→</text>
+    <rect x="938" y="140" width="142" height="92" rx="8" fill="#ece8e2" stroke="#776e64"/><text x="952" y="178" font-size="15" fill="#4b4640">5  FINAL BRIEF</text><text x="952" y="205" font-size="15" fill="#4b4640">BAD OUTCOME</text>
+  </g>
+  <line x1="365" y1="252" x2="365" y2="329" stroke="#a7392d" stroke-width="3"/>
+  <rect x="112" y="329" width="825" height="156" rx="10" fill="#202020"/>
+  <text x="148" y="378" font-family="Arial,sans-serif" font-size="23" fill="#ffffff">ROOT CAUSE: STAGE 2 — CLASSIFICATION</text>
+  <text x="148" y="416" font-family="Arial,sans-serif" font-size="19" fill="#e7d1c9">NOT: STAGE 5 — FINAL GENERATION</text>
+  <text x="148" y="455" font-family="Arial,sans-serif" font-size="16" fill="#d7d7d7">The final brief is the visible symptom. Ordered, validated traces identify the earliest causal failure.</text>
+  <text x="54" y="545" font-family="Arial,sans-serif" font-size="15" fill="#505050">14/14 localization · 14/14 propagation/containment · 4 propagated cases · 5 contained cases · $0 API/service spend</text>
+</svg>
