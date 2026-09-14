@@ -1,36 +1,40 @@
 # AI Systems Reliability Lab
 
-Small, inspectable experiments in evaluating AI-enabled systems. Lab 01 uses only synthetic, public-safe data.
+A public series of small, inspectable experiments testing reliability mechanisms for AI-enabled systems.
 
-## Lab 02 — Failure Forensics
-
-**Question:** Can a bad multi-stage AI outcome be traced to its first causal failure rather than blamed on its final visible symptom?
-
-The completed synthetic fixture records five validated stages for 14 frozen cases and localizes the first failure **14/14** times. See [Lab 02](labs/02-failure-forensics/README.md).
+**EVALUATE → DIAGNOSE → ROUTE**
 
 ## Lab 01 — Model Regression Gate
 
-**Question:** Did a frozen AI configuration change make a bounded business workflow measurably worse?
+**Status:** COMPLETED PROOF
+**Question:** Can a proposed AI configuration be automatically blocked when it makes a bounded business workflow worse?
 
-The completed V0.3 experiment ran two frozen prompt configurations across 30 synthetic cases each using local, schema-constrained inference. Both configurations passed deterministic checks **30/30**, with **zero deterministic regressions** and **zero hard-gate violations**.
+The completed frozen experiment evaluates deterministic checks and one semantic factual-support judge across synthetic, public-safe cases. Both frozen configurations passed deterministic checks 30/30 with zero deterministic regressions and zero hard-gate violations. The historical automated release decision remains **FAIL** because the semantic judge fell below its frozen 90% support threshold.
 
-The historical automated release decision was **FAIL** because its local factual-support judge measured 50.0% baseline support and 58.6% candidate support—below the frozen 90% threshold.
+A later human audit found the local semantic judge unreliable as release authority in this bounded setup. The historical automated FAIL is preserved rather than rewritten. See [Lab 01 public evidence](labs/01-regression-gate/results/PUBLIC_EVIDENCE.md).
 
-## What the later audit changed
+## Lab 02 — Failure Forensics
 
-V0.3.1 independently audited all 60 generated replies. The local semantic judge showed low agreement with human review (53.3% baseline; 43.3% candidate), with 24 false positives, 6 false negatives, and one unavailable judgment. The automated V0.3 FAIL remains preserved as the historical system decision, but the audit limits confidence in that semantic gate as a release authority in this bounded setup.
+**Status:** COMPLETED PROOF
+**Question:** Can a bad multi-stage AI outcome be traced to the stage that first caused it?
 
-## Evidence
+The deterministic local fixture contains 14 frozen cases and 70 structured traces, with 14/14 first-failure localization, 14/14 failure-type classification, and 14/14 propagation or containment determinations. It used $0 API/service spend. See [Lab 02](labs/02-failure-forensics/README.md).
 
-Start with [the public evidence index](labs/01-regression-gate/results/PUBLIC_EVIDENCE.md).
+## Lab 03 — Cost / Quality Router
 
-## Decisions I Made
+**Status:** FOUNDATION PUBLIC / MEASUREMENT PENDING
+**Question:** Can an AI system select the lowest-burden execution route only after that route proves it clears frozen quality and policy-authority requirements?
 
-- Used deterministic checks whenever correctness could be established exactly; kept factual support as the sole semantic dimension.
-- Froze the dataset, prompts, model, schema-constrained decoding, and release thresholds before clean execution.
-- Rejected contaminated execution traces rather than normalizing them into a result.
-- Preserved the automated FAIL after the later audit challenged the local semantic evaluator.
+The public foundation provides deterministic runbook verification, a frozen V001 quality floor, evidence-derived route eligibility, measured/held-out conjunction, explicit metric epistemics, Pareto burden comparison, deterministic-route anti-lookup boundaries, canonical freeze-surface hashing, and route-bound/verifier-bound evidence contracts.
+
+No measured Lab 03 routing result exists yet. R0, R1, and R2 have not executed publicly; there is no routing winner, measured cost saving, or observed NO-ROUTER-NEEDED outcome. See [Lab 03](labs/03-cost-quality-router/README.md).
+
+## Program story
+
+**Evaluate:** Lab 01 asks whether a changed AI configuration became worse.
+**Diagnose:** Lab 02 asks where a bad outcome first became invalid.
+**Route:** Lab 03 builds the foundation for deciding which execution path is eligible before burden is compared.
 
 ## Boundary
 
-This is a synthetic, local experiment with **$0 API/service spend**, not production infrastructure, a general benchmark, or a claim about all LLM-as-judge systems.
+These are synthetic, bounded experiments. They are not production infrastructure, a general AI benchmark, or an autonomous orchestration system.
