@@ -10,7 +10,9 @@ The route question is deliberately narrow: **what is the lowest-burden proven ex
 
 ## Implementation foundation only
 
-**No measured Lab 03 result exists yet.** This slice creates contracts and deterministic verification only. It does not execute R0/R1/R2, call a model, run Ollama, produce cases, or claim a routing win or cost savings.
+**No measured Lab 03 result exists yet.** The completed foundation freezes contracts, synthetic inputs, and deterministic verification only. It does not execute R0/R1/R2, call a model, run Ollama, or claim a routing win or cost savings.
+
+Slice 01 established the routing and evidence contracts. Slice 02 freezes the synthetic 36-case measured set, six separate eligibility-canary cases, and Freeze A authority surface. Freeze A pins the route-visible input projection, while verifier-only expectations remain outside route inputs; it also pins the deterministic verifier semantic specification. Human-authority requirements are derivable from visible synthetic policy and request facts. Freeze A exists before any route execution; the canary has not run, no route has executed, and no measured result exists. Held-out cases provide tuning isolation, not a secret benchmark.
 
 The current foundation enforces deterministic runbook verification (including duplicate-step rejection), explicit metric epistemics, and evidence-derived route eligibility. Eligibility is revalidated at comparison time against route-bound and verifier-bound evidence, quality-floor identity, and separate disjoint measured and held-out populations. It also enforces Pareto burden comparison with insufficient-evidence handling, R0 anti-lookup boundaries, and canonical freeze-surface hashing across unordered structures.
 

@@ -1,0 +1,26 @@
+{
+  "cannot_change_freeze_a": true,
+  "case_ids": [
+    "L03-C-001",
+    "L03-C-002",
+    "L03-C-003",
+    "L03-C-004",
+    "L03-C-005",
+    "L03-C-006"
+  ],
+  "dispositions": [
+    "ELIGIBLE",
+    "INELIGIBLE",
+    "RUNTIME_UNUSABLE",
+    "CAPABILITY_GRADIENT_ABSENT",
+    "NO_ROUTER_NEEDED"
+  ],
+  "excluded_from_measured_statistics": true,
+  "execution_authority": "NOT_AUTHORIZED_IN_SLICE_02",
+  "packet_version": "L03-CANARY-V001",
+  "route_ids": [
+    "R0",
+    "R1",
+    "R2"
+  ]
+}

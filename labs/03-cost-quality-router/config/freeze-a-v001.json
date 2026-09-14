@@ -1,0 +1,50 @@
+{
+  "allowed_step_vocabulary_digest": "e404ab7c40453fbe8997a1cbdbd620c7f982006ff574c1c95c659bd70be1e433",
+  "burden_dimensions_digest": "d2cb8a0a441d7888f1227ce7caa7d81d4e59546c06557f7531885fbe179de1b7",
+  "canary_cannot_change_frozen_task_difficulty": true,
+  "canary_case_digest": "b33c9d2713bf4e30b10b01fb6f951d3456f5cf88e9bad99578f370c82d0f6816",
+  "canary_packet_digest": "45bc4566d29f85a69602ce0f91b66669c0e4b54dd4b61cc95734fed66e6335fd",
+  "canary_semantics": "pre-execution eligibility/runtime/capability check only; excluded from measured statistics",
+  "case_collection_digest": "0c0c9963f75d89dfc4d16177ed4ecc0bb3cc09c9e272ab460063566b859bfb08",
+  "counts": {
+    "canary_total": 6,
+    "held_out_total": 12,
+    "measured_tiers": {
+      "TIER_1": 12,
+      "TIER_2": 12,
+      "TIER_3": 12
+    },
+    "measured_total": 36,
+    "visible_total": 24
+  },
+  "eligibility_semantics": "measured-and-held-out-conjunction; disjoint populations required",
+  "freeze_a_digest": "c0b8eed27670f215a5ca42ee48ed1b9b45735f1c63910301816de8ff9d550cb1",
+  "freeze_a_precedes_canary_execution": true,
+  "freeze_version": "FREEZE-A-V001",
+  "held_out_case_digest": "ef81a9876652cef48aa1499a46a7b5b7dc29c680ba9a1bd496554c89f4b10054",
+  "lab_id": "LAB-03",
+  "metric_epistemic_states": [
+    "ACTUAL",
+    "ESTIMATED",
+    "UNPRICED",
+    "UNKNOWN"
+  ],
+  "no_measured_result_exists_yet": true,
+  "no_route_output_exists_yet": true,
+  "ordering_rule": "canonical case_id order; no runtime randomization",
+  "policy_universe_digest": "7980bc65e55620ff0b79112f2e4c06d4bdede551877b119e985e6262cb624733",
+  "quality_floor_digest": "f8991df685d88d89976e223d8fb52a4b7ea76d2a0034350b78b6abaf16d72885",
+  "r0_applicability_surface_digest": "55ae772b20890977650f87e77022564eb79c8825c865b7a2ab79990b978790eb",
+  "route_definition_digests": {
+    "R0": "bdb0d8ffcb00b6442905e81a6c259b27c7c7876d31582b4155d5f25f2847b933",
+    "R1": "922b73aac0b502a63aa487e4059955625d41a0e833f91818311c3bb58063aafe",
+    "R2": "190306e1a03feef7f9484eb87521a239ce9feefb12ddb046e28ed9a22bd8fceb"
+  },
+  "route_input_projection_digest": "b8bb9e5b6596b041eb10ac9428022766cf416a5192de7b68651947fd9656a385",
+  "route_observation_contract_digest": "cd393b76ec268e40ef21fc4b0a51cd721e5344db323f7dd572b1428c6bfe8dd4",
+  "schema_version": "L03-CASE-V001",
+  "verifier_config_digest": "7e2a5d5336c0f88c6569f6f46d7854412c3bb8b7b85d7b94c623414ff3e177d6",
+  "verifier_config_digest_meaning": "canonical aggregate digest of case-derived VerifierConfig objects keyed by case ID",
+  "verifier_semantics_digest": "af0711d50d3e83d2d4881cc1afc0daee03e53ad48c6f085fb1fd1b4dd7b2e8fb",
+  "visible_case_digest": "48d7919ae8b0aeffedeb7183f3e16dbeace538bb7ba412381c35c2f867b27fbe"
+}
