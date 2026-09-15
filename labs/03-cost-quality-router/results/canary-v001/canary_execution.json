@@ -1,0 +1,1602 @@
+{
+  "artifact_version": "L03-CANARY-RESULT-V001",
+  "canary_packet_digest": "45bc4566d29f85a69602ce0f91b66669c0e4b54dd4b61cc95734fed66e6335fd",
+  "canary_packet_version": "L03-CANARY-V001",
+  "capability_gradient": "INCONCLUSIVE",
+  "case_ids": [
+    "L03-C-001",
+    "L03-C-002",
+    "L03-C-003",
+    "L03-C-004",
+    "L03-C-005",
+    "L03-C-006"
+  ],
+  "executed_at": "2026-09-14T05:16:10.007756+00:00",
+  "execution_trace_binding": "Each record binds case ID, frozen route digest, candidate or runtime failure, verifier output when generated, Freeze A digest, and canary packet digest.",
+  "freeze_a_digest": "c0b8eed27670f215a5ca42ee48ed1b9b45735f1c63910301816de8ff9d550cb1",
+  "no_router_needed": "INCONCLUSIVE",
+  "records": {
+    "R0": [
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "local deterministic execution",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "wall-clock timing",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "ms",
+            "value": 0.927
+          },
+          "token_usage": {
+            "applicability": "NOT_APPLICABLE",
+            "collection_method": "not applicable",
+            "coverage": 1.0,
+            "epistemic_state": "UNPRICED",
+            "source": "R0 has no model call",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": {
+          "policy_citations": [
+            "POL-APPROVAL",
+            "POL-APPROVAL-THRESHOLD",
+            "POL-DOC",
+            "POL-STANDARD",
+            "POL-VERIFY"
+          ],
+          "requires_human_authority": false,
+          "steps": [
+            "assess_request",
+            "validate_inputs",
+            "review_policy",
+            "collect_evidence",
+            "confirm_threshold",
+            "prepare_action",
+            "record_decision"
+          ]
+        },
+        "case_id": "L03-C-001",
+        "case_pass": true,
+        "execution_status": "COMPLETED",
+        "hard_gate_failures": [],
+        "model": null,
+        "provider": "local",
+        "route_definition_digest": "bdb0d8ffcb00b6442905e81a6c259b27c7c7876d31582b4155d5f25f2847b933",
+        "route_id": "R0",
+        "runtime": "Python local deterministic executor",
+        "verifier_result": {
+          "case_id": "L03-C-001",
+          "checks": [
+            {
+              "detail": "plan matches the structured contract",
+              "hard_gate": true,
+              "name": "schema_valid",
+              "passed": true
+            },
+            {
+              "detail": "all emitted steps must be in the frozen vocabulary",
+              "hard_gate": true,
+              "name": "allowed_steps",
+              "passed": true
+            },
+            {
+              "detail": "forbidden steps must be absent",
+              "hard_gate": true,
+              "name": "forbidden_steps_absent",
+              "passed": true
+            },
+            {
+              "detail": "duplicate runbook steps are not allowed in V001",
+              "hard_gate": true,
+              "name": "duplicate_steps_absent",
+              "passed": true
+            },
+            {
+              "detail": "human authority must exactly match frozen policy",
+              "hard_gate": true,
+              "name": "human_authority",
+              "passed": true
+            },
+            {
+              "detail": "all citations must exist in supplied policy facts",
+              "hard_gate": true,
+              "name": "known_policy_citations",
+              "passed": true
+            },
+            {
+              "detail": "all required steps must be present",
+              "hard_gate": false,
+              "name": "required_steps",
+              "passed": true
+            },
+            {
+              "detail": "all required citations must be present",
+              "hard_gate": false,
+              "name": "required_citations",
+              "passed": true
+            },
+            {
+              "detail": "frozen step dependencies must be satisfied",
+              "hard_gate": false,
+              "name": "ordering_constraints",
+              "passed": true
+            }
+          ]
+        }
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "local deterministic execution",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "wall-clock timing",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "ms",
+            "value": 0.187
+          },
+          "token_usage": {
+            "applicability": "NOT_APPLICABLE",
+            "collection_method": "not applicable",
+            "coverage": 1.0,
+            "epistemic_state": "UNPRICED",
+            "source": "R0 has no model call",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": {
+          "policy_citations": [
+            "POL-APPROVAL",
+            "POL-APPROVAL-THRESHOLD",
+            "POL-DOC",
+            "POL-STANDARD",
+            "POL-VERIFY"
+          ],
+          "requires_human_authority": true,
+          "steps": [
+            "assess_request",
+            "validate_inputs",
+            "review_policy",
+            "collect_evidence",
+            "confirm_threshold",
+            "request_human_approval",
+            "prepare_action",
+            "record_decision"
+          ]
+        },
+        "case_id": "L03-C-002",
+        "case_pass": true,
+        "execution_status": "COMPLETED",
+        "hard_gate_failures": [],
+        "model": null,
+        "provider": "local",
+        "route_definition_digest": "bdb0d8ffcb00b6442905e81a6c259b27c7c7876d31582b4155d5f25f2847b933",
+        "route_id": "R0",
+        "runtime": "Python local deterministic executor",
+        "verifier_result": {
+          "case_id": "L03-C-002",
+          "checks": [
+            {
+              "detail": "plan matches the structured contract",
+              "hard_gate": true,
+              "name": "schema_valid",
+              "passed": true
+            },
+            {
+              "detail": "all emitted steps must be in the frozen vocabulary",
+              "hard_gate": true,
+              "name": "allowed_steps",
+              "passed": true
+            },
+            {
+              "detail": "forbidden steps must be absent",
+              "hard_gate": true,
+              "name": "forbidden_steps_absent",
+              "passed": true
+            },
+            {
+              "detail": "duplicate runbook steps are not allowed in V001",
+              "hard_gate": true,
+              "name": "duplicate_steps_absent",
+              "passed": true
+            },
+            {
+              "detail": "human authority must exactly match frozen policy",
+              "hard_gate": true,
+              "name": "human_authority",
+              "passed": true
+            },
+            {
+              "detail": "all citations must exist in supplied policy facts",
+              "hard_gate": true,
+              "name": "known_policy_citations",
+              "passed": true
+            },
+            {
+              "detail": "all required steps must be present",
+              "hard_gate": false,
+              "name": "required_steps",
+              "passed": true
+            },
+            {
+              "detail": "all required citations must be present",
+              "hard_gate": false,
+              "name": "required_citations",
+              "passed": true
+            },
+            {
+              "detail": "frozen step dependencies must be satisfied",
+              "hard_gate": false,
+              "name": "ordering_constraints",
+              "passed": true
+            }
+          ]
+        }
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "local deterministic execution",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "wall-clock timing",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "ms",
+            "value": 0.154
+          },
+          "token_usage": {
+            "applicability": "NOT_APPLICABLE",
+            "collection_method": "not applicable",
+            "coverage": 1.0,
+            "epistemic_state": "UNPRICED",
+            "source": "R0 has no model call",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": {
+          "policy_citations": [
+            "POL-APPROVAL",
+            "POL-APPROVAL-THRESHOLD",
+            "POL-DOC",
+            "POL-EXCEPTION",
+            "POL-VERIFY"
+          ],
+          "requires_human_authority": false,
+          "steps": [
+            "assess_request",
+            "validate_inputs",
+            "review_policy",
+            "collect_evidence",
+            "confirm_threshold",
+            "escalate_exception",
+            "record_decision"
+          ]
+        },
+        "case_id": "L03-C-003",
+        "case_pass": true,
+        "execution_status": "COMPLETED",
+        "hard_gate_failures": [],
+        "model": null,
+        "provider": "local",
+        "route_definition_digest": "bdb0d8ffcb00b6442905e81a6c259b27c7c7876d31582b4155d5f25f2847b933",
+        "route_id": "R0",
+        "runtime": "Python local deterministic executor",
+        "verifier_result": {
+          "case_id": "L03-C-003",
+          "checks": [
+            {
+              "detail": "plan matches the structured contract",
+              "hard_gate": true,
+              "name": "schema_valid",
+              "passed": true
+            },
+            {
+              "detail": "all emitted steps must be in the frozen vocabulary",
+              "hard_gate": true,
+              "name": "allowed_steps",
+              "passed": true
+            },
+            {
+              "detail": "forbidden steps must be absent",
+              "hard_gate": true,
+              "name": "forbidden_steps_absent",
+              "passed": true
+            },
+            {
+              "detail": "duplicate runbook steps are not allowed in V001",
+              "hard_gate": true,
+              "name": "duplicate_steps_absent",
+              "passed": true
+            },
+            {
+              "detail": "human authority must exactly match frozen policy",
+              "hard_gate": true,
+              "name": "human_authority",
+              "passed": true
+            },
+            {
+              "detail": "all citations must exist in supplied policy facts",
+              "hard_gate": true,
+              "name": "known_policy_citations",
+              "passed": true
+            },
+            {
+              "detail": "all required steps must be present",
+              "hard_gate": false,
+              "name": "required_steps",
+              "passed": true
+            },
+            {
+              "detail": "all required citations must be present",
+              "hard_gate": false,
+              "name": "required_citations",
+              "passed": true
+            },
+            {
+              "detail": "frozen step dependencies must be satisfied",
+              "hard_gate": false,
+              "name": "ordering_constraints",
+              "passed": true
+            }
+          ]
+        }
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "local deterministic execution",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "wall-clock timing",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "ms",
+            "value": 0.145
+          },
+          "token_usage": {
+            "applicability": "NOT_APPLICABLE",
+            "collection_method": "not applicable",
+            "coverage": 1.0,
+            "epistemic_state": "UNPRICED",
+            "source": "R0 has no model call",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": {
+          "policy_citations": [
+            "POL-APPROVAL",
+            "POL-APPROVAL-THRESHOLD",
+            "POL-DOC",
+            "POL-STANDARD",
+            "POL-VERIFY"
+          ],
+          "requires_human_authority": true,
+          "steps": [
+            "assess_request",
+            "validate_inputs",
+            "review_policy",
+            "collect_evidence",
+            "confirm_threshold",
+            "request_human_approval",
+            "prepare_action",
+            "record_decision"
+          ]
+        },
+        "case_id": "L03-C-004",
+        "case_pass": true,
+        "execution_status": "COMPLETED",
+        "hard_gate_failures": [],
+        "model": null,
+        "provider": "local",
+        "route_definition_digest": "bdb0d8ffcb00b6442905e81a6c259b27c7c7876d31582b4155d5f25f2847b933",
+        "route_id": "R0",
+        "runtime": "Python local deterministic executor",
+        "verifier_result": {
+          "case_id": "L03-C-004",
+          "checks": [
+            {
+              "detail": "plan matches the structured contract",
+              "hard_gate": true,
+              "name": "schema_valid",
+              "passed": true
+            },
+            {
+              "detail": "all emitted steps must be in the frozen vocabulary",
+              "hard_gate": true,
+              "name": "allowed_steps",
+              "passed": true
+            },
+            {
+              "detail": "forbidden steps must be absent",
+              "hard_gate": true,
+              "name": "forbidden_steps_absent",
+              "passed": true
+            },
+            {
+              "detail": "duplicate runbook steps are not allowed in V001",
+              "hard_gate": true,
+              "name": "duplicate_steps_absent",
+              "passed": true
+            },
+            {
+              "detail": "human authority must exactly match frozen policy",
+              "hard_gate": true,
+              "name": "human_authority",
+              "passed": true
+            },
+            {
+              "detail": "all citations must exist in supplied policy facts",
+              "hard_gate": true,
+              "name": "known_policy_citations",
+              "passed": true
+            },
+            {
+              "detail": "all required steps must be present",
+              "hard_gate": false,
+              "name": "required_steps",
+              "passed": true
+            },
+            {
+              "detail": "all required citations must be present",
+              "hard_gate": false,
+              "name": "required_citations",
+              "passed": true
+            },
+            {
+              "detail": "frozen step dependencies must be satisfied",
+              "hard_gate": false,
+              "name": "ordering_constraints",
+              "passed": true
+            }
+          ]
+        }
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "local deterministic execution",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "wall-clock timing",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "ms",
+            "value": 0.114
+          },
+          "token_usage": {
+            "applicability": "NOT_APPLICABLE",
+            "collection_method": "not applicable",
+            "coverage": 1.0,
+            "epistemic_state": "UNPRICED",
+            "source": "R0 has no model call",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": {
+          "policy_citations": [
+            "POL-APPROVAL",
+            "POL-APPROVAL-THRESHOLD",
+            "POL-CLOSE",
+            "POL-DOC",
+            "POL-NOTIFY",
+            "POL-STANDARD",
+            "POL-VERIFY"
+          ],
+          "requires_human_authority": false,
+          "steps": [
+            "assess_request",
+            "validate_inputs",
+            "review_policy",
+            "collect_evidence",
+            "confirm_threshold",
+            "prepare_action",
+            "record_decision",
+            "notify_stakeholder",
+            "close_request"
+          ]
+        },
+        "case_id": "L03-C-005",
+        "case_pass": true,
+        "execution_status": "COMPLETED",
+        "hard_gate_failures": [],
+        "model": null,
+        "provider": "local",
+        "route_definition_digest": "bdb0d8ffcb00b6442905e81a6c259b27c7c7876d31582b4155d5f25f2847b933",
+        "route_id": "R0",
+        "runtime": "Python local deterministic executor",
+        "verifier_result": {
+          "case_id": "L03-C-005",
+          "checks": [
+            {
+              "detail": "plan matches the structured contract",
+              "hard_gate": true,
+              "name": "schema_valid",
+              "passed": true
+            },
+            {
+              "detail": "all emitted steps must be in the frozen vocabulary",
+              "hard_gate": true,
+              "name": "allowed_steps",
+              "passed": true
+            },
+            {
+              "detail": "forbidden steps must be absent",
+              "hard_gate": true,
+              "name": "forbidden_steps_absent",
+              "passed": true
+            },
+            {
+              "detail": "duplicate runbook steps are not allowed in V001",
+              "hard_gate": true,
+              "name": "duplicate_steps_absent",
+              "passed": true
+            },
+            {
+              "detail": "human authority must exactly match frozen policy",
+              "hard_gate": true,
+              "name": "human_authority",
+              "passed": true
+            },
+            {
+              "detail": "all citations must exist in supplied policy facts",
+              "hard_gate": true,
+              "name": "known_policy_citations",
+              "passed": true
+            },
+            {
+              "detail": "all required steps must be present",
+              "hard_gate": false,
+              "name": "required_steps",
+              "passed": true
+            },
+            {
+              "detail": "all required citations must be present",
+              "hard_gate": false,
+              "name": "required_citations",
+              "passed": true
+            },
+            {
+              "detail": "frozen step dependencies must be satisfied",
+              "hard_gate": false,
+              "name": "ordering_constraints",
+              "passed": true
+            }
+          ]
+        }
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "local deterministic execution",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "wall-clock timing",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "R0 execution trace",
+            "unit": "ms",
+            "value": 0.125
+          },
+          "token_usage": {
+            "applicability": "NOT_APPLICABLE",
+            "collection_method": "not applicable",
+            "coverage": 1.0,
+            "epistemic_state": "UNPRICED",
+            "source": "R0 has no model call",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": {
+          "policy_citations": [
+            "POL-APPROVAL",
+            "POL-APPROVAL-THRESHOLD",
+            "POL-CLOSE",
+            "POL-DOC",
+            "POL-EXCEPTION",
+            "POL-NOTIFY",
+            "POL-VERIFY"
+          ],
+          "requires_human_authority": true,
+          "steps": [
+            "assess_request",
+            "validate_inputs",
+            "review_policy",
+            "collect_evidence",
+            "confirm_threshold",
+            "request_human_approval",
+            "escalate_exception",
+            "record_decision",
+            "notify_stakeholder",
+            "close_request"
+          ]
+        },
+        "case_id": "L03-C-006",
+        "case_pass": true,
+        "execution_status": "COMPLETED",
+        "hard_gate_failures": [],
+        "model": null,
+        "provider": "local",
+        "route_definition_digest": "bdb0d8ffcb00b6442905e81a6c259b27c7c7876d31582b4155d5f25f2847b933",
+        "route_id": "R0",
+        "runtime": "Python local deterministic executor",
+        "verifier_result": {
+          "case_id": "L03-C-006",
+          "checks": [
+            {
+              "detail": "plan matches the structured contract",
+              "hard_gate": true,
+              "name": "schema_valid",
+              "passed": true
+            },
+            {
+              "detail": "all emitted steps must be in the frozen vocabulary",
+              "hard_gate": true,
+              "name": "allowed_steps",
+              "passed": true
+            },
+            {
+              "detail": "forbidden steps must be absent",
+              "hard_gate": true,
+              "name": "forbidden_steps_absent",
+              "passed": true
+            },
+            {
+              "detail": "duplicate runbook steps are not allowed in V001",
+              "hard_gate": true,
+              "name": "duplicate_steps_absent",
+              "passed": true
+            },
+            {
+              "detail": "human authority must exactly match frozen policy",
+              "hard_gate": true,
+              "name": "human_authority",
+              "passed": true
+            },
+            {
+              "detail": "all citations must exist in supplied policy facts",
+              "hard_gate": true,
+              "name": "known_policy_citations",
+              "passed": true
+            },
+            {
+              "detail": "all required steps must be present",
+              "hard_gate": false,
+              "name": "required_steps",
+              "passed": true
+            },
+            {
+              "detail": "all required citations must be present",
+              "hard_gate": false,
+              "name": "required_citations",
+              "passed": true
+            },
+            {
+              "detail": "frozen step dependencies must be satisfied",
+              "hard_gate": false,
+              "name": "ordering_constraints",
+              "passed": true
+            }
+          ]
+        }
+      }
+    ],
+    "R1": [
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed local runtime preflight",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed runtime preflight",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "canary execution log",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "ms",
+            "value": null
+          },
+          "token_usage": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": null,
+        "case_id": "L03-C-001",
+        "case_pass": null,
+        "execution_status": "RUNTIME_UNUSABLE",
+        "hard_gate_failures": [],
+        "model": "qwen2.5:1.5b",
+        "provider": "local",
+        "route_definition_digest": "922b73aac0b502a63aa487e4059955625d41a0e833f91818311c3bb58063aafe",
+        "route_id": "R1",
+        "runtime": "Ollama local runtime",
+        "runtime_failure": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+        "verifier_result": null
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed local runtime preflight",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed runtime preflight",
+            "unit": "ms",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "canary execution log",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "ms",
+            "value": null
+          },
+          "token_usage": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": null,
+        "case_id": "L03-C-002",
+        "case_pass": null,
+        "execution_status": "RUNTIME_UNUSABLE",
+        "hard_gate_failures": [],
+        "model": "qwen2.5:1.5b",
+        "provider": "local",
+        "route_definition_digest": "922b73aac0b502a63aa487e4059955625d41a0e833f91818311c3bb58063aafe",
+        "route_id": "R1",
+        "runtime": "Ollama local runtime",
+        "runtime_failure": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+        "verifier_result": null
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed local runtime preflight",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed runtime preflight",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "canary execution log",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "ms",
+            "value": null
+          },
+          "token_usage": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": null,
+        "case_id": "L03-C-003",
+        "case_pass": null,
+        "execution_status": "RUNTIME_UNUSABLE",
+        "hard_gate_failures": [],
+        "model": "qwen2.5:1.5b",
+        "provider": "local",
+        "route_definition_digest": "922b73aac0b502a63aa487e4059955625d41a0e833f91818311c3bb58063aafe",
+        "route_id": "R1",
+        "runtime": "Ollama local runtime",
+        "runtime_failure": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+        "verifier_result": null
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed local runtime preflight",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed runtime preflight",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "canary execution log",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "ms",
+            "value": null
+          },
+          "token_usage": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": null,
+        "case_id": "L03-C-004",
+        "case_pass": null,
+        "execution_status": "RUNTIME_UNUSABLE",
+        "hard_gate_failures": [],
+        "model": "qwen2.5:1.5b",
+        "provider": "local",
+        "route_definition_digest": "922b73aac0b502a63aa487e4059955625d41a0e833f91818311c3bb58063aafe",
+        "route_id": "R1",
+        "runtime": "Ollama local runtime",
+        "runtime_failure": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+        "verifier_result": null
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed local runtime preflight",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed runtime preflight",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "canary execution log",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "ms",
+            "value": null
+          },
+          "token_usage": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": null,
+        "case_id": "L03-C-005",
+        "case_pass": null,
+        "execution_status": "RUNTIME_UNUSABLE",
+        "hard_gate_failures": [],
+        "model": "qwen2.5:1.5b",
+        "provider": "local",
+        "route_definition_digest": "922b73aac0b502a63aa487e4059955625d41a0e833f91818311c3bb58063aafe",
+        "route_id": "R1",
+        "runtime": "Ollama local runtime",
+        "runtime_failure": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+        "verifier_result": null
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed local runtime preflight",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed runtime preflight",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "canary execution log",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "ms",
+            "value": null
+          },
+          "token_usage": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": null,
+        "case_id": "L03-C-006",
+        "case_pass": null,
+        "execution_status": "RUNTIME_UNUSABLE",
+        "hard_gate_failures": [],
+        "model": "qwen2.5:1.5b",
+        "provider": "local",
+        "route_definition_digest": "922b73aac0b502a63aa487e4059955625d41a0e833f91818311c3bb58063aafe",
+        "route_id": "R1",
+        "runtime": "Ollama local runtime",
+        "runtime_failure": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+        "verifier_result": null
+      }
+    ],
+    "R2": [
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed local runtime preflight",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed runtime preflight",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "canary execution log",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "ms",
+            "value": null
+          },
+          "token_usage": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": null,
+        "case_id": "L03-C-001",
+        "case_pass": null,
+        "execution_status": "RUNTIME_UNUSABLE",
+        "hard_gate_failures": [],
+        "model": "qwen2.5:1.5b",
+        "provider": "local",
+        "route_definition_digest": "190306e1a03feef7f9484eb87521a239ce9feefb12ddb046e28ed9a22bd8fceb",
+        "route_id": "R2",
+        "runtime": "Ollama local runtime",
+        "runtime_failure": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+        "verifier_result": null
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed local runtime preflight",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed runtime preflight",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "canary execution log",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "ms",
+            "value": null
+          },
+          "token_usage": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": null,
+        "case_id": "L03-C-002",
+        "case_pass": null,
+        "execution_status": "RUNTIME_UNUSABLE",
+        "hard_gate_failures": [],
+        "model": "qwen2.5:1.5b",
+        "provider": "local",
+        "route_definition_digest": "190306e1a03feef7f9484eb87521a239ce9feefb12ddb046e28ed9a22bd8fceb",
+        "route_id": "R2",
+        "runtime": "Ollama local runtime",
+        "runtime_failure": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+        "verifier_result": null
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed local runtime preflight",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed runtime preflight",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "canary execution log",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "ms",
+            "value": null
+          },
+          "token_usage": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": null,
+        "case_id": "L03-C-003",
+        "case_pass": null,
+        "execution_status": "RUNTIME_UNUSABLE",
+        "hard_gate_failures": [],
+        "model": "qwen2.5:1.5b",
+        "provider": "local",
+        "route_definition_digest": "190306e1a03feef7f9484eb87521a239ce9feefb12ddb046e28ed9a22bd8fceb",
+        "route_id": "R2",
+        "runtime": "Ollama local runtime",
+        "runtime_failure": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+        "verifier_result": null
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed local runtime preflight",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed runtime preflight",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "canary execution log",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "ms",
+            "value": null
+          },
+          "token_usage": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": null,
+        "case_id": "L03-C-004",
+        "case_pass": null,
+        "execution_status": "RUNTIME_UNUSABLE",
+        "hard_gate_failures": [],
+        "model": "qwen2.5:1.5b",
+        "provider": "local",
+        "route_definition_digest": "190306e1a03feef7f9484eb87521a239ce9feefb12ddb046e28ed9a22bd8fceb",
+        "route_id": "R2",
+        "runtime": "Ollama local runtime",
+        "runtime_failure": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+        "verifier_result": null
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed local runtime preflight",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed runtime preflight",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "canary execution log",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "ms",
+            "value": null
+          },
+          "token_usage": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": null,
+        "case_id": "L03-C-005",
+        "case_pass": null,
+        "execution_status": "RUNTIME_UNUSABLE",
+        "hard_gate_failures": [],
+        "model": "qwen2.5:1.5b",
+        "provider": "local",
+        "route_definition_digest": "190306e1a03feef7f9484eb87521a239ce9feefb12ddb046e28ed9a22bd8fceb",
+        "route_id": "R2",
+        "runtime": "Ollama local runtime",
+        "runtime_failure": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+        "verifier_result": null
+      },
+      {
+        "burden": {
+          "api_service_cost": {
+            "applicability": "APPLICABLE",
+            "collection_method": "execution authority",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed local runtime preflight",
+            "unit": "USD",
+            "value": 0.0
+          },
+          "call_count": {
+            "applicability": "APPLICABLE",
+            "collection_method": "call accounting",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "failed runtime preflight",
+            "unit": "count",
+            "value": 0
+          },
+          "human_intervention": {
+            "applicability": "APPLICABLE",
+            "collection_method": "human-intervention log",
+            "coverage": 1.0,
+            "epistemic_state": "ACTUAL",
+            "source": "canary execution log",
+            "unit": "count",
+            "value": 0
+          },
+          "latency": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "ms",
+            "value": null
+          },
+          "token_usage": {
+            "applicability": "APPLICABLE",
+            "collection_method": "runtime telemetry",
+            "coverage": 1.0,
+            "epistemic_state": "UNKNOWN",
+            "source": "no inference call completed",
+            "unit": "tokens",
+            "value": null
+          }
+        },
+        "candidate_output": null,
+        "case_id": "L03-C-006",
+        "case_pass": null,
+        "execution_status": "RUNTIME_UNUSABLE",
+        "hard_gate_failures": [],
+        "model": "qwen2.5:1.5b",
+        "provider": "local",
+        "route_definition_digest": "190306e1a03feef7f9484eb87521a239ce9feefb12ddb046e28ed9a22bd8fceb",
+        "route_id": "R2",
+        "runtime": "Ollama local runtime",
+        "runtime_failure": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+        "verifier_result": null
+      }
+    ]
+  },
+  "route_dispositions": {
+    "R0": "ELIGIBLE",
+    "R1": "RUNTIME_UNUSABLE",
+    "R2": "RUNTIME_UNUSABLE"
+  },
+  "route_order": [
+    "R0",
+    "R1",
+    "R2"
+  ],
+  "runtime_preflight": {
+    "available": false,
+    "model": "qwen2.5:1.5b",
+    "note": "local Ollama runtime unavailable: <urlopen error [Errno 61] Connection refused>",
+    "runtime": "Ollama local runtime"
+  },
+  "scope": "eligibility canary only; excluded from measured statistics"
+}

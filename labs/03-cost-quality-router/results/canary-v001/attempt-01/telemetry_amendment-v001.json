@@ -1,0 +1,24 @@
+{
+  "amendment_version": "L03-CANARY-ATTEMPT-01-TELEMETRY-AMENDMENT-V001",
+  "amends_artifact": {
+    "path": "labs/03-cost-quality-router/results/canary-v001/canary_execution.json",
+    "sha256": "cccac6044241ce6eb75444463ab1da5d3c42231b736f0e4d3d9c1fb4d6bf6981"
+  },
+  "record_identity": {
+    "case_id": "L03-C-002",
+    "route_id": "R1",
+    "field": "burden.call_count.unit"
+  },
+  "original_value": "ms",
+  "corrected_semantic_value": "count",
+  "reason": "Call-count values are counts, not latency measurements.",
+  "unchanged": {
+    "candidate_output": true,
+    "verifier_result": true,
+    "route_disposition": true,
+    "call_count_value": 0,
+    "epistemic_state": "ACTUAL"
+  },
+  "original_artifact_preserved": true,
+  "amendment_is_not_execution_rewriting": true
+}
