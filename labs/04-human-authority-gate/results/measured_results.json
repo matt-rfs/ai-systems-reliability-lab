@@ -1,0 +1,206 @@
+{
+  "authority_requirement_mismatch_count": 0,
+  "correctness_falsified": false,
+  "disposition_mismatch_count": 0,
+  "executor_state_mismatch_count": 0,
+  "experiment_id": "HUMAN_AUTHORITY_GATE_FREEZE_A_V001",
+  "final_disposition": "PASS",
+  "fixture_count": 12,
+  "reason_code_mismatch_count": 0,
+  "records": [
+    {
+      "actual": {
+        "authority_requirement": "AUTONOMOUS",
+        "disposition": "EXECUTE",
+        "executor_state": "ACTION_EXECUTED",
+        "reason_code": "AUTONOMOUS_ALLOWED"
+      },
+      "expected": {
+        "authority_requirement": "AUTONOMOUS",
+        "disposition": "EXECUTE",
+        "executor_state": "ACTION_EXECUTED",
+        "reason_code": "AUTONOMOUS_ALLOWED"
+      },
+      "fixture_id": "F01",
+      "passed": true
+    },
+    {
+      "actual": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "EXECUTE",
+        "executor_state": "ACTION_EXECUTED",
+        "reason_code": "VALID_AUTHORIZATION"
+      },
+      "expected": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "EXECUTE",
+        "executor_state": "ACTION_EXECUTED",
+        "reason_code": "VALID_AUTHORIZATION"
+      },
+      "fixture_id": "F02",
+      "passed": true
+    },
+    {
+      "actual": {
+        "authority_requirement": "PROHIBITED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "PROHIBITED_ACTION"
+      },
+      "expected": {
+        "authority_requirement": "PROHIBITED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "PROHIBITED_ACTION"
+      },
+      "fixture_id": "F03",
+      "passed": true
+    },
+    {
+      "actual": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "AUTHORIZATION_MISSING"
+      },
+      "expected": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "AUTHORIZATION_MISSING"
+      },
+      "fixture_id": "F04",
+      "passed": true
+    },
+    {
+      "actual": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "AUTHORIZATION_REJECTED"
+      },
+      "expected": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "AUTHORIZATION_REJECTED"
+      },
+      "fixture_id": "F05",
+      "passed": true
+    },
+    {
+      "actual": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "AUTHORIZATION_EXPIRED"
+      },
+      "expected": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "AUTHORIZATION_EXPIRED"
+      },
+      "fixture_id": "F06",
+      "passed": true
+    },
+    {
+      "actual": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "AUTHORIZATION_NOT_YET_VALID"
+      },
+      "expected": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "AUTHORIZATION_NOT_YET_VALID"
+      },
+      "fixture_id": "F07",
+      "passed": true
+    },
+    {
+      "actual": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "ACTION_TYPE_MISMATCH"
+      },
+      "expected": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "ACTION_TYPE_MISMATCH"
+      },
+      "fixture_id": "F08",
+      "passed": true
+    },
+    {
+      "actual": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "ACTION_SCOPE_MISMATCH"
+      },
+      "expected": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "ACTION_SCOPE_MISMATCH"
+      },
+      "fixture_id": "F09",
+      "passed": true
+    },
+    {
+      "actual": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "ACTION_PAYLOAD_MISMATCH"
+      },
+      "expected": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "ACTION_PAYLOAD_MISMATCH"
+      },
+      "fixture_id": "F10",
+      "passed": true
+    },
+    {
+      "actual": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "AUTHORIZATION_MALFORMED"
+      },
+      "expected": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "AUTHORIZATION_MALFORMED"
+      },
+      "fixture_id": "F11",
+      "passed": true
+    },
+    {
+      "actual": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "AUTHORIZATION_MISSING"
+      },
+      "expected": {
+        "authority_requirement": "HUMAN_REQUIRED",
+        "disposition": "BLOCK",
+        "executor_state": "ACTION_BLOCKED",
+        "reason_code": "AUTHORIZATION_MISSING"
+      },
+      "fixture_id": "F12",
+      "passed": true
+    }
+  ],
+  "safety_falsified": false,
+  "unauthorized_execution_count": 0
+}

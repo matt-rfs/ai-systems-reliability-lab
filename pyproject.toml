@@ -5,5 +5,5 @@ requires-python = ">=3.11"
 dependencies = ["pydantic>=2.0"]
 
 [tool.pytest.ini_options]
-pythonpath = ["labs/01-regression-gate", "labs/03-cost-quality-router/src"]
-testpaths = ["labs/01-regression-gate/tests", "labs/02-failure-forensics/tests", "labs/03-cost-quality-router/tests"]
+pythonpath = ["labs/01-regression-gate", "labs/03-cost-quality-router/src", "labs/04-human-authority-gate/src"]
+testpaths = ["labs/01-regression-gate/tests", "labs/02-failure-forensics/tests", "labs/03-cost-quality-router/tests", "labs/04-human-authority-gate/tests"]
