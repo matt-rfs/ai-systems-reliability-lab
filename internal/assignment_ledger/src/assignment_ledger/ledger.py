@@ -1,4 +1,4 @@
-"""The deliberately small, provider-neutral Slice 1 authority boundary."""
+"""The provider-neutral authority boundary and append-only Verification seam."""
 
 from __future__ import annotations
 
@@ -8,6 +8,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
 from uuid import uuid4
+
+from .verification import (
+    EvidenceRef,
+    Verification,
+    VerificationDenied,
+    VerificationResult,
+    VerificationSubject,
+    require_text,
+)
 
 
 class AuthorizationDenied(ValueError):
@@ -55,7 +64,7 @@ class AssignmentLedger:
 
     def __init__(self, root: Path) -> None:
         self.root = Path(root)
-        for kind in ("assignments", "authorizations", "attempts"):
+        for kind in ("assignments", "authorizations", "attempts", "verifications"):
             (self.root / kind).mkdir(parents=True, exist_ok=True)
         self._used_attempt_ids = self.root / "used_attempt_ids.json"
         if not self._used_attempt_ids.exists():
@@ -81,6 +90,46 @@ class AssignmentLedger:
     def attempt(self, attempt_id: str) -> dict[str, str]:
         return self._read(self._path("attempts", attempt_id))
 
+    def verification(self, verification_id: str) -> Verification:
+        data = self._read(self._path("verifications", verification_id))
+        return Verification(**{**data, "subject": VerificationSubject(**data["subject"]),
+                               "criteria": tuple(data["criteria"]),
+                               "evidence_refs": tuple(EvidenceRef(**ref) for ref in data["evidence_refs"])})
+
+    def create_verification(self, verification: Verification) -> None:
+        """Validate all relationships and independence before writing a new fact.
+
+        Verifier is a logical actor identity in the same namespace as worker_id.
+        The caller supplies the bounded independence requirement, defaulting to
+        required; this seam neither assigns reviewers nor executes proof methods.
+        """
+        path = self._path("verifications", verification.verification_id)
+        if path.exists():
+            raise FileExistsError("Verification IDs are immutable and cannot be reused")
+        assignment = self.assignment(verification.assignment_id)
+        if verification.criteria != assignment.verification_requirements:
+            raise VerificationDenied("criteria must match Assignment verification requirements")
+        worker_id = None
+        if verification.attempt_id is not None:
+            attempt = self.attempt(verification.attempt_id)
+            if attempt["assignment_id"] != verification.assignment_id:
+                raise VerificationDenied("Attempt belongs to a different Assignment")
+            worker_id = attempt.get("worker_id")
+        if verification.independent_required:
+            if not isinstance(worker_id, str) or not worker_id.strip():
+                raise VerificationDenied("independence requires known Attempt worker identity")
+            if worker_id != worker_id.strip() or worker_id == verification.verifier:
+                raise VerificationDenied("independence requires a different logical worker")
+        # A worker cannot relabel its own report as a passing review, even when
+        # the caller has not requested an independent Verification.
+        if worker_id == verification.verifier and verification.result == VerificationResult.PASS:
+            raise VerificationDenied("worker self-report cannot establish PASS")
+        if verification.supersedes_verification_id is not None:
+            prior = self.verification(verification.supersedes_verification_id)
+            if prior.assignment_id != verification.assignment_id:
+                raise VerificationDenied("supersession requires the same Assignment")
+        self._write_new(path, asdict(verification))
+
     def replace_assignment(self, assignment: Assignment) -> None:
         """Forbid in-place material rewrites after an Attempt has started."""
         if any(record["assignment_id"] == assignment.assignment_id for record in self._attempt_records()):
@@ -97,12 +146,15 @@ class AssignmentLedger:
         invoke: Callable[[InvocationRequest], object],
         *,
         attempt_id: str | None = None,
+        worker_id: str | None = None,
     ) -> object:
         """Validate authorization, persist immutable attempt truth, then invoke."""
         assignment = self.assignment(assignment_id)
         authorization = self._require_valid_authorization(authorization_id, assignment)
+        if worker_id is not None:
+            require_text(worker_id, "worker_id")
         attempt_id = attempt_id or str(uuid4())
-        self._record_attempt(attempt_id, assignment, authorization)
+        self._record_attempt(attempt_id, assignment, authorization, worker_id)
         return invoke(InvocationRequest(attempt_id, assignment_id, authorization.authorization_id, assignment.objective))
 
     def _require_valid_authorization(self, authorization_id: str | None, assignment: Assignment) -> Authorization:
@@ -118,18 +170,23 @@ class AssignmentLedger:
             raise AuthorizationDenied("Authorization is out of scope for Assignment")
         return authorization
 
-    def _record_attempt(self, attempt_id: str, assignment: Assignment, authorization: Authorization) -> None:
+    def _record_attempt(
+        self, attempt_id: str, assignment: Assignment, authorization: Authorization, worker_id: str | None,
+    ) -> None:
         used = self._read(self._used_attempt_ids)
         if attempt_id in used or self._path("attempts", attempt_id).exists():
             raise ValueError("Attempt IDs are immutable and cannot be reused")
         used.append(attempt_id)
         self._write_replace(self._used_attempt_ids, used)
-        self._write_new(self._path("attempts", attempt_id), {
+        record = {
             "attempt_id": attempt_id,
             "assignment_id": assignment.assignment_id,
             "authorization_id": authorization.authorization_id,
             "started_at": datetime.now(timezone.utc).isoformat(),
-        })
+        }
+        if worker_id is not None:
+            record["worker_id"] = worker_id
+        self._write_new(self._path("attempts", attempt_id), record)
 
     def _attempt_records(self) -> list[dict[str, str]]:
         return [self._read(path) for path in (self.root / "attempts").glob("*.json")]

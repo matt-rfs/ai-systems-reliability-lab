@@ -1,4 +1,4 @@
-"""File-backed Assignment + Authorization + Attempt authority seam."""
+"""File-backed Assignment + Authorization + Attempt + Verification seam."""
 
 from .ledger import (
     Assignment,
@@ -8,6 +8,14 @@ from .ledger import (
     AuthorizationDenied,
     InvocationRequest,
 )
+from .verification import (
+    EvidenceRef,
+    Verification,
+    VerificationDenied,
+    VerificationMethod,
+    VerificationResult,
+    VerificationSubject,
+)
 
 __all__ = [
     "Assignment",
@@ -16,4 +24,10 @@ __all__ = [
     "Authorization",
     "AuthorizationDenied",
     "InvocationRequest",
+    "EvidenceRef",
+    "Verification",
+    "VerificationDenied",
+    "VerificationMethod",
+    "VerificationResult",
+    "VerificationSubject",
 ]
