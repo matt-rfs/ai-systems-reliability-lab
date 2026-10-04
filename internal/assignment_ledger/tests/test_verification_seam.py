@@ -79,12 +79,22 @@ def test_attempt_cannot_be_borrowed_from_another_assignment(tmp_path):
     assert_no_verification(ledger)
 
 
-@pytest.mark.parametrize("independent_required", [True, False])
-def test_verification_without_attempt_does_not_apply_attempt_worker_independence(tmp_path, independent_required):
+@pytest.mark.parametrize("result", list(VerificationResult))
+def test_independent_verification_without_attempt_fails_closed_before_persistence(tmp_path, result):
+    ledger = ledger_with_attempt(tmp_path)
+    with pytest.raises(VerificationDenied, match="known Attempt worker identity"):
+        ledger.create_verification(verification(attempt_id=None, independent_required=True, result=result))
+    assert_no_verification(AssignmentLedger(tmp_path))
+
+
+def test_non_independent_verification_without_attempt_is_permitted(tmp_path):
     ledger = ledger_with_attempt(tmp_path, worker_id=None)
-    ledger.create_verification(verification(attempt_id=None, independent_required=independent_required))
-    assert ledger.verification("verification-1").attempt_id is None
-    assert ledger.verification("verification-1").independent_required is independent_required
+    proposed = verification(attempt_id=None, independent_required=False)
+    ledger.create_verification(proposed)
+    persisted = AssignmentLedger(tmp_path).verification("verification-1")
+    assert persisted == proposed
+    assert persisted.attempt_id is None
+    assert persisted.independent_required is False
 
 
 def test_gate_03_criteria_are_explicit_and_durable(tmp_path):

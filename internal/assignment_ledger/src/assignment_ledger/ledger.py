@@ -100,7 +100,8 @@ class AssignmentLedger:
 
         Verifier is a logical actor identity in the same namespace as worker_id.
         The caller supplies the bounded independence requirement, defaulting to
-        required for a related Attempt; this seam neither selects upstream
+        required. Establishing independence requires related Attempt worker
+        provenance; this seam neither selects upstream
         independence policy, assigns reviewers, nor executes proof methods.
         """
         path = self._path("verifications", verification.verification_id)
@@ -113,7 +114,7 @@ class AssignmentLedger:
             if attempt["assignment_id"] != verification.assignment_id:
                 raise VerificationDenied("Attempt belongs to a different Assignment")
             worker_id = attempt.get("worker_id")
-        if verification.independent_required and verification.attempt_id is not None:
+        if verification.independent_required:
             if not isinstance(worker_id, str) or not worker_id.strip():
                 raise VerificationDenied("independence requires known Attempt worker identity")
             if worker_id != worker_id.strip() or worker_id == verification.verifier:

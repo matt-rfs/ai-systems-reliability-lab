@@ -32,8 +32,10 @@ Verification is required for a related Attempt, its logical `worker_id` must be
 known and different from `verifier`; the responsible worker is rejected and unknown
 worker provenance fails closed. When independence is not required, worker identity
 alone does not prohibit PASS with explicit criteria, evidence, and a supported proof
-method. Verification without an Attempt relationship is not automatically subject
-to Attempt-worker independence. The caller explicitly supplies the requirement;
+method. Verification without an Attempt relationship is permitted when
+`independent_required=False`. Requesting independence requires an existing related
+Attempt with known worker provenance; no Attempt fails closed before persistence.
+The caller explicitly supplies the requirement;
 Slice 2 does not determine upstream independence policy or assign reviewers. Not
 all Verification is independent Verification.
 
