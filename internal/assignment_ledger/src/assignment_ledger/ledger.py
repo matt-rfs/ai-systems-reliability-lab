@@ -13,7 +13,6 @@ from .verification import (
     EvidenceRef,
     Verification,
     VerificationDenied,
-    VerificationResult,
     VerificationSubject,
     require_text,
 )
@@ -101,29 +100,24 @@ class AssignmentLedger:
 
         Verifier is a logical actor identity in the same namespace as worker_id.
         The caller supplies the bounded independence requirement, defaulting to
-        required; this seam neither assigns reviewers nor executes proof methods.
+        required for a related Attempt; this seam neither selects upstream
+        independence policy, assigns reviewers, nor executes proof methods.
         """
         path = self._path("verifications", verification.verification_id)
         if path.exists():
             raise FileExistsError("Verification IDs are immutable and cannot be reused")
-        assignment = self.assignment(verification.assignment_id)
-        if verification.criteria != assignment.verification_requirements:
-            raise VerificationDenied("criteria must match Assignment verification requirements")
+        self.assignment(verification.assignment_id)
         worker_id = None
         if verification.attempt_id is not None:
             attempt = self.attempt(verification.attempt_id)
             if attempt["assignment_id"] != verification.assignment_id:
                 raise VerificationDenied("Attempt belongs to a different Assignment")
             worker_id = attempt.get("worker_id")
-        if verification.independent_required:
+        if verification.independent_required and verification.attempt_id is not None:
             if not isinstance(worker_id, str) or not worker_id.strip():
                 raise VerificationDenied("independence requires known Attempt worker identity")
             if worker_id != worker_id.strip() or worker_id == verification.verifier:
                 raise VerificationDenied("independence requires a different logical worker")
-        # A worker cannot relabel its own report as a passing review, even when
-        # the caller has not requested an independent Verification.
-        if worker_id == verification.verifier and verification.result == VerificationResult.PASS:
-            raise VerificationDenied("worker self-report cannot establish PASS")
         if verification.supersedes_verification_id is not None:
             prior = self.verification(verification.supersedes_verification_id)
             if prior.assignment_id != verification.assignment_id:

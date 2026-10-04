@@ -45,15 +45,21 @@ class VerificationSubject:
 
 @dataclass(frozen=True)
 class EvidenceRef:
-    """A locator plus the SHA-256 of the exact evidence content supporting the verdict."""
+    """An exact commit SHA, or a locator with a supporting content digest.
+
+    The reference identifies evidence; syntax validation does not prove it true.
+    """
 
     reference: str
-    sha256: str
+    sha256: str | None = None
 
     def __post_init__(self) -> None:
         require_text(self.reference, "evidence reference")
-        if not isinstance(self.sha256, str) or re.fullmatch(r"[0-9a-f]{64}", self.sha256) is None:
-            raise VerificationDenied("evidence requires a SHA256 immutable identity")
+        if self.sha256 is None:
+            if re.fullmatch(r"(?:[0-9a-f]{40}|[0-9a-f]{64})", self.reference) is None:
+                raise VerificationDenied("mutable evidence reference requires an immutable identity")
+        elif not isinstance(self.sha256, str) or re.fullmatch(r"[0-9a-f]{64}", self.sha256) is None:
+            raise VerificationDenied("evidence SHA256 identity must be a full digest")
 
 
 @dataclass(frozen=True)

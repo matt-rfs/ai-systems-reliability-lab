@@ -21,10 +21,10 @@ SUBJECT = VerificationSubject("SHA256", "a" * 64)
 EVIDENCE = EvidenceRef("test-results/frozen-checks.json", "b" * 64)
 
 
-def ledger_with_attempt(tmp_path, *, worker_id="worker-1"):
+def ledger_with_attempt(tmp_path, *, worker_id="worker-1", requirements=CRITERIA):
     ledger = AssignmentLedger(tmp_path)
     ledger.create_assignment(Assignment("assignment-1", "inspect fixture", frozenset({"read:fixture"}),
-                                        ("local only",), ("report",), CRITERIA))
+                                        ("local only",), ("report",), requirements))
     ledger.create_authorization(Authorization("authorization-1", "approved fixture", "GOV-001",
                                               frozenset({"read:fixture"}), ("local only",),
                                               "2026-09-14T00:00:00+00:00", "governance"))
@@ -79,27 +79,45 @@ def test_attempt_cannot_be_borrowed_from_another_assignment(tmp_path):
     assert_no_verification(ledger)
 
 
-def test_verification_without_attempt_does_not_claim_independence(tmp_path):
-    ledger = ledger_with_attempt(tmp_path)
-    with pytest.raises(VerificationDenied, match="known Attempt worker"):
-        ledger.create_verification(verification(attempt_id=None))
-    assert_no_verification(ledger)
-    ledger.create_verification(verification(attempt_id=None, independent_required=False))
+@pytest.mark.parametrize("independent_required", [True, False])
+def test_verification_without_attempt_does_not_apply_attempt_worker_independence(tmp_path, independent_required):
+    ledger = ledger_with_attempt(tmp_path, worker_id=None)
+    ledger.create_verification(verification(attempt_id=None, independent_required=independent_required))
     assert ledger.verification("verification-1").attempt_id is None
-    assert ledger.verification("verification-1").independent_required is False
+    assert ledger.verification("verification-1").independent_required is independent_required
 
 
-def test_gate_03_criteria_are_explicit_and_bound_to_assignment(tmp_path):
+def test_gate_03_criteria_are_explicit_and_durable(tmp_path):
     ledger = ledger_with_attempt(tmp_path)
     for criteria in ((), ("",), ["mutable criteria"]):
         with pytest.raises(VerificationDenied):
             ledger.create_verification(verification(criteria=criteria))
-    for criteria in (("implementer-defined easier success",), CRITERIA[:1]):
-        with pytest.raises(VerificationDenied, match="Assignment verification requirements"):
-            ledger.create_verification(verification(criteria=criteria))
     assert_no_verification(ledger)
     ledger.create_verification(verification())
     assert ledger.verification("verification-1").criteria == CRITERIA
+
+
+def test_remediation_01_reordered_explicit_criteria_are_preserved(tmp_path):
+    ledger = ledger_with_attempt(tmp_path)
+    reordered = tuple(reversed(CRITERIA))
+    ledger.create_verification(verification(criteria=reordered))
+    assert AssignmentLedger(tmp_path).verification("verification-1").criteria == reordered
+    assert ledger.assignment("assignment-1").verification_requirements == CRITERIA
+
+
+@pytest.mark.parametrize("criteria", [("explicit result checks",), CRITERIA[:1],
+                                     CRITERIA + ("an additional explicit check",)])
+def test_remediation_02_criteria_need_not_equal_assignment_requirements(tmp_path, criteria):
+    ledger = ledger_with_attempt(tmp_path)
+    ledger.create_verification(verification(criteria=criteria))
+    assert AssignmentLedger(tmp_path).verification("verification-1").criteria == criteria
+
+
+def test_remediation_03_assignment_without_requirements_can_receive_verification(tmp_path):
+    ledger = ledger_with_attempt(tmp_path, requirements=())
+    ledger.create_verification(verification())
+    assert ledger.assignment("assignment-1").verification_requirements == ()
+    assert AssignmentLedger(tmp_path).verification("verification-1").criteria == CRITERIA
 
 
 def test_gate_04_evidence_references_are_explicit_and_immutable(tmp_path):
@@ -111,6 +129,26 @@ def test_gate_04_evidence_references_are_explicit_and_immutable(tmp_path):
             ledger.create_verification(verification(evidence_refs=(EvidenceRef(reference, digest),)))
     with pytest.raises(VerificationDenied):
         ledger.create_verification(verification(evidence_refs=[EVIDENCE]))
+
+
+@pytest.mark.parametrize("commit_sha", ["c" * 40, "d" * 64])
+def test_remediation_04_exact_commit_evidence_needs_no_redundant_digest(tmp_path, commit_sha):
+    ledger = ledger_with_attempt(tmp_path)
+    evidence = EvidenceRef(commit_sha)
+    ledger.create_verification(verification(evidence_refs=(evidence,)))
+    persisted = AssignmentLedger(tmp_path).verification("verification-1")
+    assert persisted.evidence_refs == (evidence,)
+    assert persisted.evidence_refs[0].reference == commit_sha
+    assert persisted.evidence_refs[0].sha256 is None
+    assert persisted.result == VerificationResult.PASS
+
+
+@pytest.mark.parametrize("reference", ["test-results/current.json", "branch:main", "abcd"])
+def test_mutable_evidence_needs_immutable_supporting_identity(tmp_path, reference):
+    ledger = ledger_with_attempt(tmp_path)
+    with pytest.raises(VerificationDenied, match="immutable identity"):
+        ledger.create_verification(verification(evidence_refs=(EvidenceRef(reference),)))
+    assert_no_verification(ledger)
 
 
 def test_gate_05_verifier_is_required_and_durable(tmp_path):
@@ -235,14 +273,25 @@ def test_gate_16_provider_neutral_core_works_without_adapters(tmp_path):
         assert not any(provider in source for provider in ("codex", "claude", "antigravity", "muse", "paperclip"))
 
 
-def test_gate_17_worker_self_report_cannot_manufacture_pass(tmp_path):
+@pytest.mark.parametrize("independent_required", [True, False])
+def test_gate_17_worker_self_report_cannot_manufacture_pass(tmp_path, independent_required):
     ledger = ledger_with_attempt(tmp_path)
     with pytest.raises(VerificationDenied, match="self-report"):
-        ledger.create_verification(verification(method=VerificationMethod.WORKER_SELF_REPORT))
-    for method in (VerificationMethod.DETERMINISTIC, VerificationMethod.MODEL_REVIEW, VerificationMethod.HUMAN_REVIEW):
-        with pytest.raises(VerificationDenied, match="self-report"):
-            ledger.create_verification(verification(verifier="worker-1", independent_required=False, method=method))
+        ledger.create_verification(verification(method=VerificationMethod.WORKER_SELF_REPORT,
+                                               independent_required=independent_required))
     assert_no_verification(ledger)
+
+
+@pytest.mark.parametrize("method", [VerificationMethod.DETERMINISTIC, VerificationMethod.MODEL_REVIEW,
+                                    VerificationMethod.HUMAN_REVIEW])
+def test_documented_non_independent_verification_allows_responsible_worker(tmp_path, method):
+    ledger = ledger_with_attempt(tmp_path)
+    ledger.create_verification(verification(verifier="worker-1", independent_required=False, method=method))
+    persisted = AssignmentLedger(tmp_path).verification("verification-1")
+    assert persisted.verifier == ledger.attempt("attempt-1")["worker_id"]
+    assert persisted.independent_required is False
+    assert persisted.result == VerificationResult.PASS
+    assert persisted.method == method
 
 
 @pytest.mark.parametrize("kind,identity", [("PATH", "out/result.json"), ("BRANCH", "main"),
